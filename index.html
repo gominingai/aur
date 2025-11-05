@@ -1,0 +1,2569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration | Aureum Capital Partners</title>
+    <link rel="icon" type="image/x-icon" href="https://s.iimg.su/s/03/gwM5cbzxO5RdwP4YItpI7U3E1zvN2ZjsB2SPzRpb.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --charcoal: #1A1A1A;
+            --graphite: #252525;
+            --light-gray: #3A3A3A;
+            --accent: #D4AF37;
+            --accent-light: #E6C55A;
+            --accent-dark: #B8941F;
+            --text-light: #F5F5F5;
+            --text-muted: #CCCCCC;
+            --success: #2ecc71;
+            --error: #e74c3c;
+        }
+        
+        body {
+            background-color: var(--charcoal);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: var(--graphite);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--charcoal);
+            font-weight: bold;
+            font-size: 1.2rem;
+            background-image: url('https://s.iimg.su/s/03/gwM5cbzxO5RdwP4YItpI7U3E1zvN2ZjsB2SPzRpb.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        .language-switcher {
+            background: transparent;
+            border: 1px solid var(--light-gray);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .login-top {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .login-input {
+            padding: 0.5rem 1rem;
+            background: rgba(26, 26, 26, 0.7);
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            color: var(--text-light);
+            width: 150px;
+        }
+        
+        .login-btn {
+            background: var(--accent);
+            color: var(--charcoal);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .login-btn:hover {
+            background: var(--accent-light);
+        }
+        
+        .withdraw-top {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .withdraw-top:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+        
+        .container {
+            display: flex;
+            flex: 1;
+            min-height: calc(100vh - 80px);
+        }
+        
+        .brand-section {
+            flex: 1;
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--graphite) 100%);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .brand-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+        
+        .brand-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .brand-logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .brand-logo::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        
+        .brand-tagline {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            font-style: italic;
+        }
+        
+        .brand-description {
+            max-width: 500px;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+        
+        .features {
+            margin-top: 2rem;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            padding: 0.8rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature:hover {
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+        
+        .feature i {
+            color: var(--accent);
+            margin-right: 1rem;
+            font-size: 1.3rem;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .investment-info {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, transparent 100%);
+            border-left: 3px solid var(--accent);
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .investment-info h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .investment-details {
+            margin-top: 1rem;
+        }
+        
+        .investment-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+        
+        .investment-detail i {
+            color: var(--accent);
+            margin-right: 0.8rem;
+            font-size: 1rem;
+        }
+        
+        .form-section {
+            flex: 1;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--graphite);
+            position: relative;
+        }
+        
+        .form-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23333" stroke-width="0.5"/></svg>');
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .form-container {
+            max-width: 450px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-header {
+            margin-bottom: 2rem;
+        }
+        
+        .form-title {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+        
+        .form-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+        
+        .input-with-icon {
+            position: relative;
+        }
+        
+        .input-with-icon i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+        
+        .input-with-icon input {
+            padding-left: 3rem;
+        }
+        
+        input {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            background-color: rgba(26, 26, 26, 0.7);
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            color: var(--text-light);
+        }
+        
+        input:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+        
+        input:focus + i {
+            color: var(--accent);
+        }
+        
+        .password-strength {
+            height: 4px;
+            background-color: var(--light-gray);
+            margin-top: 0.5rem;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .password-strength-bar {
+            height: 100%;
+            width: 0;
+            border-radius: 2px;
+            transition: width 0.3s, background-color 0.3s;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .checkbox-group input {
+            width: auto;
+            margin-right: 0.5rem;
+            margin-top: 0.2rem;
+        }
+        
+        .checkbox-group label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .terms-link {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .terms-link:hover {
+            color: var(--accent-light);
+            text-decoration: underline;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: var(--charcoal);
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            color: var(--text-muted);
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .divider span {
+            padding: 0 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .social-login {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-btn {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            background-color: rgba(26, 26, 26, 0.5);
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .social-btn:hover {
+            border-color: var(--accent);
+            background-color: rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--text-muted);
+        }
+        
+        .login-link a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .login-link a:hover {
+            color: var(--accent-light);
+            text-decoration: underline;
+        }
+        
+        /* Стили для личного кабинета */
+        .dashboard {
+            display: none;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .dashboard-title {
+            font-size: 2.2rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .dashboard-nav {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .dashboard-nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        
+        .dashboard-nav-link.active {
+            background-color: rgba(212, 175, 55, 0.1);
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .dashboard-nav-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .dashboard-content {
+            display: none;
+        }
+        
+        .dashboard-content.active {
+            display: block;
+        }
+        
+        .logout-btn {
+            background-color: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logout-btn:hover {
+            background-color: var(--accent);
+            color: var(--charcoal);
+            transform: translateY(-2px);
+        }
+        
+        .balance-section {
+            background: linear-gradient(135deg, var(--graphite) 0%, var(--light-gray) 100%);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .balance-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+        }
+        
+        .balance-title {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        
+        .balance-amount {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .balance-usd {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .investment-scale {
+            margin-top: 1.5rem;
+        }
+        
+        .scale-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .scale-bar {
+            height: 8px;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .scale-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 4px;
+            width: 0%;
+            transition: width 1s ease;
+        }
+        
+        .balance-change {
+            margin-top: 0.5rem;
+            color: var(--text-muted);
+        }
+        
+        .positive {
+            color: var(--success);
+        }
+        
+        .negative {
+            color: var(--error);
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .dashboard-card {
+            background-color: var(--graphite);
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            color: var(--text-muted);
+        }
+        
+        .info-value {
+            font-weight: 500;
+        }
+        
+        .quick-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.2rem;
+        }
+        
+        .action-btn {
+            flex: 1;
+            padding: 0.8rem;
+            background-color: var(--charcoal);
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .action-btn:hover {
+            border-color: var(--accent);
+            background-color: rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .deposit-btn {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: var(--charcoal);
+            border: none;
+            font-weight: 600;
+        }
+        
+        .deposit-btn:hover {
+            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .investment-highlight {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, transparent 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .investment-highlight h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+        
+        .highlight-item i {
+            color: var(--accent);
+            margin-right: 0.8rem;
+            font-size: 1rem;
+        }
+        
+        /* Стили для модального окна инвестирования */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .modal-content {
+            background-color: var(--graphite);
+            border-radius: 12px;
+            max-width: 1200px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--accent);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+        
+        .project-card {
+            background-color: var(--charcoal);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--light-gray);
+            transition: all 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent);
+        }
+        
+        .project-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-category {
+            display: inline-block;
+            background-color: rgba(212, 175, 55, 0.2);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .project-stats {
+            padding: 1.5rem;
+        }
+        
+        .project-stat {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        
+        .project-stat:last-child {
+            margin-bottom: 0;
+        }
+        
+        .stat-label {
+            color: var(--text-muted);
+        }
+        
+        .stat-value {
+            font-weight: 500;
+        }
+        
+        .project-actions {
+            padding: 1rem 1.5rem;
+            background-color: rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .invest-btn {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: var(--charcoal);
+            border: none;
+            border-radius: 6px;
+            padding: 0.7rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .invest-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .chat-btn {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            border-radius: 6px;
+            padding: 0.7rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .chat-btn:hover {
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+        
+        .aur-badge {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Сообщения */
+        .messages-container {
+            background: var(--graphite);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .message-empty {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 3rem;
+        }
+        
+        .message-empty i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--light-gray);
+        }
+        
+        /* История операций */
+        .operations-empty {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 3rem;
+        }
+        
+        .operations-empty i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--light-gray);
+        }
+        
+        /* Footer Styles */
+        .footer {
+            background: var(--graphite);
+            padding: 2rem;
+            border-top: 1px solid var(--light-gray);
+            margin-top: auto;
+        }
+        
+        .supported-by {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .supported-title {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .partner-logo {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .partner-logo:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .partner-icon {
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: var(--accent);
+        }
+        
+        /* Settings Panel */
+        .settings-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: var(--graphite);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            transition: right 0.3s ease;
+            z-index: 1001;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        
+        .settings-panel.active {
+            right: 0;
+        }
+        
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .settings-title {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .close-settings {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .settings-section {
+            margin-bottom: 2rem;
+        }
+        
+        .settings-section h3 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .settings-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .settings-option:last-child {
+            border-bottom: none;
+        }
+        
+        /* Edit Profile Modal */
+        .edit-profile-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1002;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .edit-profile-content {
+            background-color: var(--graphite);
+            border-radius: 12px;
+            max-width: 500px;
+            width: 100%;
+            padding: 2rem;
+        }
+        
+        /* Withdrawal Modal */
+        .withdrawal-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1003;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .withdrawal-content {
+            background-color: var(--graphite);
+            border-radius: 12px;
+            max-width: 500px;
+            width: 100%;
+            padding: 2rem;
+        }
+        
+        .withdrawal-method {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .method-btn {
+            flex: 1;
+            padding: 1rem;
+            background-color: var(--charcoal);
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .method-btn.active {
+            border-color: var(--accent);
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+        
+        .method-btn:hover {
+            border-color: var(--accent);
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+        
+        .method-content {
+            display: none;
+        }
+        
+        .method-content.active {
+            display: block;
+        }
+        
+        .error-message {
+            color: var(--error);
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Deposit Modal */
+        .deposit-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1004;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .deposit-content {
+            background-color: var(--graphite);
+            border-radius: 12px;
+            max-width: 500px;
+            width: 100%;
+            padding: 2rem;
+        }
+        
+        .crypto-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .crypto-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background-color: var(--charcoal);
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .crypto-option:hover {
+            border-color: var(--accent);
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+        
+        .crypto-option.active {
+            border-color: var(--accent);
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+        
+        .crypto-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .crypto-details {
+            flex: 1;
+        }
+        
+        .crypto-name {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+        
+        .crypto-address {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            word-break: break-all;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .brand-section {
+                padding: 2rem;
+            }
+            
+            .form-section {
+                padding: 2rem;
+            }
+            
+            .social-login {
+                flex-direction: column;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-actions {
+                flex-direction: column;
+            }
+            
+            .balance-amount {
+                font-size: 2.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            .modal-content {
+                max-height: 95vh;
+            }
+            
+            .settings-panel {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .header {
+                padding: 1rem;
+            }
+            
+            .dashboard-nav {
+                gap: 0.5rem;
+            }
+            
+            .dashboard-nav-link {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .login-top {
+                display: none;
+            }
+            
+            .withdrawal-method {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo-img"></div>
+            <a href="#" class="logo">AUREUM CAPITAL</a>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link" id="about-btn">About</a>
+            <a href="#" class="nav-link" id="support-btn">Support</a>
+            <a href="#" class="nav-link" id="settings-btn">Settings</a>
+            <div class="login-top" id="login-top">
+                <input type="text" class="login-input" placeholder="Username">
+                <input type="password" class="login-input" placeholder="Password">
+                <button class="login-btn">Login</button>
+            </div>
+            <button class="withdraw-top" id="withdraw-top-btn">
+                <i class="fas fa-wallet"></i> Withdraw
+            </button>
+            <select class="language-switcher" id="language-switcher">
+                <option value="en">English</option>
+                <option value="ru">Russian</option>
+            </select>
+        </div>
+    </header>
+
+    <!-- Форма регистрации -->
+    <div class="container" id="registration-container">
+        <div class="brand-section">
+            <div class="brand-content">
+                <div class="brand-logo">AUREUM CAPITAL PARTNERS</div>
+                <div class="brand-tagline">Elite Community of Financial Experts</div>
+                <div class="brand-description">
+                    <p>Aureum Capital Partners is an exclusive investment platform that brings together leading specialists in finance, technology, and strategic consulting. We create unique opportunities for capital growth through innovative investment solutions.</p>
+                </div>
+                
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Maximum asset security</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Expert analysis from industry leaders</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <span>Access to a closed community of investors</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-coins"></i>
+                        <span>Proprietary AUR currency for internal settlements</span>
+                    </div>
+                </div>
+                <a href="https://freekassa.net" target="_blank" rel="noopener noreferrer">
+  <img src="https://cdn.freekassa.net/banners/big-dark-1.png" title="Прием платежей на сайте">
+</a>
+               
+                <div class="investment-info">
+                    <h3>Investments in Aureum Internal Asset</h3>
+                    <p>Our platform offers a unique internal asset available only to members of the Aureum Capital Partners community.</p>
+                    
+                    <div class="investment-details">
+                        <div class="investment-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Holding period: 3 to 6 months for maximum growth</span>
+                        </div>
+                        <div class="investment-detail">
+                            <i class="fas fa-coins"></i>
+                            <span>Minimum deposit: 10,000 AUR</span>
+                        </div>
+                        <div class="investment-detail">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Historical yield: 15-25% annually</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <div class="form-container">
+                <div class="form-header">
+                    <h1 class="form-title">Join the Elite</h1>
+                    <p class="form-subtitle">Become part of the exclusive Aureum Capital Partners community</p>
+                </div>
+                
+                <form id="registration-form">
+                    <div class="form-group">
+                        <label for="fullname">Full Name</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="fullname" name="fullname" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <div class="password-strength">
+                            <div class="password-strength-bar" id="password-strength-bar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirm-password" name="confirm-password" required>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a></label>
+                    </div>
+                    
+                    <button type="submit" class="btn">Become an Investor</button>
+                    
+                    <div class="divider">
+                        <span>or join with</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="social-btn">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                        <button type="button" class="social-btn">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="login-link">
+                    Already have an account? <a href="#" id="login-link">Login to system</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Личный кабинет -->
+    <div class="dashboard" id="dashboard">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Exclusive Investor Dashboard</h1>
+            <button class="logout-btn" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+        
+        <div class="dashboard-nav">
+            <a href="#" class="dashboard-nav-link active" data-tab="overview">Overview</a>
+            <a href="#" class="dashboard-nav-link" data-tab="investments">Investments</a>
+            <a href="#" class="dashboard-nav-link" data-tab="withdraw">Withdrawal</a>
+            <a href="#" class="dashboard-nav-link" data-tab="history">Transaction History</a>
+            <a href="#" class="dashboard-nav-link" data-tab="profile">Profile</a>
+            <a href="#" class="dashboard-nav-link" data-tab="messages">Messages</a>
+        </div>
+        
+        <!-- Вкладка Overview -->
+        <div class="dashboard-content active" id="overview-tab">
+            <div class="balance-section">
+                <div class="balance-title">Your Investment Balance</div>
+                <div class="balance-amount" id="balance-amount">0 AUR</div>
+                <div class="balance-usd" id="balance-usd">$0.00 USD</div>
+                <div class="balance-change">
+                    <span id="balance-change">+0 AUR (0%)</span> last month
+                </div>
+                
+                <div class="investment-scale">
+                    <div class="scale-header">
+                        <span>Investment Level</span>
+                        <span id="investment-percent">0%</span>
+                    </div>
+                    <div class="scale-bar">
+                        <div class="scale-progress" id="scale-progress"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h2 class="card-title">
+                        <i class="fas fa-rocket"></i> Quick Start
+                    </h2>
+                    <div class="info-item">
+                        <span class="info-label">Account Status:</span>
+                        <span class="info-value" style="color: var(--accent);">Active</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Registration Date:</span>
+                        <span class="info-value" id="registration-date">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Verification:</span>
+                        <span class="info-value positive">Completed</span>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="action-btn deposit-btn" id="deposit-btn">
+                            <i class="fas fa-plus"></i> Deposit
+                        </button>
+                        <button class="action-btn" id="invest-btn">Start Investing</button>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h2 class="card-title">
+                        <i class="fas fa-chart-line"></i> Statistics
+                    </h2>
+                    <div class="info-item">
+                        <span class="info-label">Active Investments:</span>
+                        <span class="info-value">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Total Return:</span>
+                        <span class="info-value">0%</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Next Payout:</span>
+                        <span class="info-value">-</span>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h2 class="card-title">
+                        <i class="fas fa-bell"></i> Notifications
+                    </h2>
+                    <div class="info-item">
+                        <span class="info-label">New Messages:</span>
+                        <span class="info-value">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Important Alerts:</span>
+                        <span class="info-value">1</span>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="action-btn">View All</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="investment-highlight">
+                <h3><i class="fas fa-coins"></i> Internal AUR Currency</h3>
+                <div class="highlight-item">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Minimum investment deposit: 10,000 AUR</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Recommended holding period: 3 to 6 months for maximum growth</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Average historical yield: 18-25% annually in AUR</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Вкладка Investments -->
+        <div class="dashboard-content" id="investments-tab">
+            <div class="dashboard-card">
+                <h2 class="card-title">
+                    <i class="fas fa-chart-line"></i> My Investments
+                </h2>
+                <div class="info-item">
+                    <span class="info-label">Active Investments:</span>
+                    <span class="info-value">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Total Investment Amount:</span>
+                    <span class="info-value">0 AUR</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Total Return:</span>
+                    <span class="info-value">0%</span>
+                </div>
+                <div class="quick-actions">
+                    <button class="action-btn deposit-btn" id="deposit-main-btn">
+                        <i class="fas fa-plus"></i> Deposit
+                    </button>
+                    <button class="action-btn" id="invest-main-btn">Find Investments</button>
+                </div>
+            </div>
+            
+            <div class="investment-highlight">
+                <h3><i class="fas fa-search"></i> Available Investment Opportunities</h3>
+                <p>Currently, 120 verified companies are available for investment with minimum investments starting from $300.</p>
+                <div class="quick-actions">
+                    <button class="action-btn" id="explore-investments">Explore All Opportunities</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Вкладка Withdrawal -->
+        <div class="dashboard-content" id="withdraw-tab">
+            <div class="dashboard-card">
+                <h2 class="card-title">
+                    <i class="fas fa-wallet"></i> Withdrawal
+                </h2>
+                <div class="info-item">
+                    <span class="info-label">Available for Withdrawal:</span>
+                    <span class="info-value">0 AUR</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Minimum Withdrawal:</span>
+                    <span class="info-value">1,000 AUR</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Fee:</span>
+                    <span class="info-value">1.5%</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Status:</span>
+                    <span class="info-value" style="color: var(--text-muted);">You haven't withdrawn funds yet</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Вкладка Transaction History -->
+        <div class="dashboard-content" id="history-tab">
+            <div class="operations-empty">
+                <i class="fas fa-receipt"></i>
+                <h3>Transaction History is Empty</h3>
+                <p>All your financial transactions will be displayed here</p>
+            </div>
+        </div>
+        
+        <!-- Вкладка Profile -->
+        <div class="dashboard-content" id="profile-tab">
+            <div class="dashboard-card">
+                <h2 class="card-title">
+                    <i class="fas fa-user-tie"></i> Investor Profile
+                </h2>
+                <div class="info-item">
+                    <span class="info-label">Name:</span>
+                    <span class="info-value" id="profile-name">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Email:</span>
+                    <span class="info-value" id="profile-email">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Phone:</span>
+                    <span class="info-value" id="profile-phone">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Client ID:</span>
+                    <span class="info-value" id="profile-id">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Status:</span>
+                    <span class="info-value" style="color: var(--accent);">Premium Investor</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Registration Date:</span>
+                    <span class="info-value" id="profile-registration-date">-</span>
+                </div>
+                <div class="quick-actions">
+                    <button class="action-btn" id="edit-profile-btn">Edit Profile</button>
+                    <button class="action-btn" id="security-settings-btn">Security Settings</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Вкладка Messages -->
+        <div class="dashboard-content" id="messages-tab">
+            <div class="messages-container">
+                <div class="message-empty">
+                    <i class="fas fa-comments"></i>
+                    <h3>No Messages</h3>
+                    <p>Your conversations with companies and support will be displayed here</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно инвестирования -->
+    <div class="modal-overlay" id="investment-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Exclusive Investment Projects</h2>
+                <button class="close-modal" id="close-modal">&times;</button>
+            </div>
+            <div class="projects-grid" id="projects-container">
+                <!-- Проекты будут добавлены через JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно депозита -->
+    <div class="deposit-modal" id="deposit-modal">
+        <div class="deposit-content">
+            <div class="settings-header">
+                <h2 class="settings-title">Deposit Funds</h2>
+                <button class="close-settings" id="close-deposit">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="deposit-amount">Amount (AUR)</label>
+                <input type="number" id="deposit-amount" class="login-input" style="width: 100%;" min="10000" placeholder="Minimum 10,000 AUR">
+            </div>
+            
+            <div class="form-group">
+                <h3>Select Cryptocurrency</h3>
+                <div class="crypto-options">
+                    <div class="crypto-option active" data-crypto="btc">
+                        <div class="crypto-icon">
+                            <i class="fab fa-bitcoin" style="color: #F7931A;"></i>
+                        </div>
+                        <div class="crypto-details">
+                            <div class="crypto-name">Bitcoin (BTC)</div>
+                            <div class="crypto-address">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</div>
+                        </div>
+                    </div>
+                    <div class="crypto-option" data-crypto="eth">
+                        <div class="crypto-icon">
+                            <i class="fab fa-ethereum" style="color: #627EEA;"></i>
+                        </div>
+                        <div class="crypto-details">
+                            <div class="crypto-name">Ethereum (ETH)</div>
+                            <div class="crypto-address">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</div>
+                        </div>
+                    </div>
+                    <div class="crypto-option" data-crypto="usdt">
+                        <div class="crypto-icon">
+                            <i class="fas fa-coins" style="color: #26A17B;"></i>
+                        </div>
+                        <div class="crypto-details">
+                            <div class="crypto-name">Tether (USDT)</div>
+                            <div class="crypto-address">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</div>
+                        </div>
+                    </div>
+                    <div class="crypto-option" data-crypto="usdc">
+                        <div class="crypto-icon">
+                            <i class="fas fa-dollar-sign" style="color: #2775CA;"></i>
+                        </div>
+                        <div class="crypto-details">
+                            <div class="crypto-name">USD Coin (USDC)</div>
+                            <div class="crypto-address">0x71C7656EC7ab88b098defB751B7401B5f6d8976F</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn" id="confirm-deposit">Proceed to Payment</button>
+        </div>
+    </div>
+
+    <!-- Панель настроек -->
+    <div class="settings-panel" id="settings-panel">
+        <div class="settings-header">
+            <h2 class="settings-title">Settings</h2>
+            <button class="close-settings" id="close-settings">&times;</button>
+        </div>
+        
+        <div class="settings-section">
+            <h3>Profile</h3>
+            <div class="settings-option">
+                <span>Edit Profile Data</span>
+                <button class="action-btn" id="edit-profile-settings-btn">Edit</button>
+            </div>
+            <div class="settings-option">
+                <span>Change Password</span>
+                <button class="action-btn">Change</button>
+            </div>
+        </div>
+        
+        <div class="settings-section">
+            <h3>Notifications</h3>
+            <div class="settings-option">
+                <span>Email Notifications</span>
+                <input type="checkbox" checked>
+            </div>
+            <div class="settings-option">
+                <span>SMS Notifications</span>
+                <input type="checkbox">
+            </div>
+        </div>
+        
+        <div class="settings-section">
+            <h3>Security</h3>
+            <div class="settings-option">
+                <span>Two-Factor Authentication</span>
+                <input type="checkbox">
+            </div>
+            <div class="settings-option">
+                <span>Login History</span>
+                <button class="action-btn">View</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="edit-profile-modal" id="edit-profile-modal">
+        <div class="edit-profile-content">
+            <div class="settings-header">
+                <h2 class="settings-title">Edit Profile</h2>
+                <button class="close-settings" id="close-edit-profile">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="edit-name">Full Name</label>
+                <input type="text" id="edit-name" class="login-input" style="width: 100%;">
+            </div>
+            <div class="form-group">
+                <label for="edit-email">Email</label>
+                <input type="email" id="edit-email" class="login-input" style="width: 100%;">
+            </div>
+            <div class="form-group">
+                <label for="edit-phone">Phone</label>
+                <input type="tel" id="edit-phone" class="login-input" style="width: 100%;">
+            </div>
+            <div class="quick-actions">
+                <button class="action-btn" id="save-profile">Save Changes</button>
+                <button class="action-btn" id="cancel-edit">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Withdrawal Modal -->
+    <div class="withdrawal-modal" id="withdrawal-modal">
+        <div class="withdrawal-content">
+            <div class="settings-header">
+                <h2 class="settings-title">Withdraw Funds</h2>
+                <button class="close-settings" id="close-withdrawal">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="withdrawal-amount">Amount (AUR)</label>
+                <input type="number" id="withdrawal-amount" class="login-input" style="width: 100%;" min="1000" placeholder="Minimum 1,000 AUR">
+            </div>
+            
+            <div class="withdrawal-method">
+                <button class="method-btn active" data-method="crypto">Cryptocurrency</button>
+                <button class="method-btn" data-method="card">Bank Card</button>
+            </div>
+            
+            <div class="method-content active" id="crypto-method">
+                <div class="form-group">
+                    <label for="crypto-address">Crypto Wallet Address</label>
+                    <input type="text" id="crypto-address" class="login-input" style="width: 100%;" placeholder="Enter your wallet address">
+                </div>
+                <div class="form-group">
+                    <label for="crypto-type">Cryptocurrency</label>
+                    <select id="crypto-type" class="login-input" style="width: 100%;">
+                        <option value="btc">Bitcoin (BTC)</option>
+                        <option value="eth">Ethereum (ETH)</option>
+                        <option value="usdt">Tether (USDT)</option>
+                        <option value="usdc">USD Coin (USDC)</option>
+                    </select>
+                </div>
+                <button class="btn" id="withdraw-crypto">Withdraw via Crypto</button>
+            </div>
+            
+            <div class="method-content" id="card-method">
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" class="login-input" style="width: 100%;" placeholder="1234 5678 9012 3456">
+                </div>
+                <div class="form-group">
+                    <label for="card-holder">Cardholder Name</label>
+                    <input type="text" id="card-holder" class="login-input" style="width: 100%;" placeholder="JOHN DOE">
+                </div>
+                <div class="form-group" style="display: flex; gap: 1rem;">
+                    <div style="flex: 1;">
+                        <label for="card-expiry">Expiry Date</label>
+                        <input type="text" id="card-expiry" class="login-input" style="width: 100%;" placeholder="MM/YY">
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="card-cvv">CVV</label>
+                        <input type="text" id="card-cvv" class="login-input" style="width: 100%;" placeholder="123">
+                    </div>
+                </div>
+                <div id="card-error" class="error-message"></div>
+                <button class="btn" id="withdraw-card">Withdraw to Card</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="supported-by">
+            <div class="supported-title">Supported by Leading Global Platforms</div>
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <i class="fab fa-google partner-icon"></i>
+                    Google
+                </div>
+                <div class="partner-logo">
+                    <i class="fab fa-meta partner-icon"></i>
+                    Meta
+                </div>
+                <div class="partner-logo">
+                    <i class="fab fa-microsoft partner-icon"></i>
+                    Microsoft
+                </div>
+                <div class="partner-logo">
+                    <i class="fab fa-amazon partner-icon"></i>
+                    Amazon
+                </div>
+                <div class="partner-logo">
+                    <i class="fab fa-apple partner-icon"></i>
+                    Apple
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-links">
+            <a href="#" class="footer-link">About Us</a>
+            <a href="#" class="footer-link">Contacts</a>
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+            <a href="#" class="footer-link">Support</a>
+        </div>
+    </footer>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6908c1ad0f915a1951a2588c/1j953940h';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <script>
+        // Данные проектов для инвестирования (120 компаний)
+        const investmentProjects = [];
+        const categories = ["Technology", "Finance", "Real Estate", "Energy", "Healthcare", "Transportation", "Retail", "Education"];
+        const returnPeriods = ["3 months", "4 months", "5 months", "6 months"];
+        const payoutFrequencies = ["Monthly", "Quarterly", "Semi-annually", "Annually"];
+        
+        for (let i = 1; i <= 120; i++) {
+            const minInvestmentUSD = 300 + Math.floor(Math.random() * 1850); // $300 - $2000
+            const minInvestmentAUR = Math.round(minInvestmentUSD * 28.57); // Примерный курс 1 AUR = $0.030
+            
+            investmentProjects.push({
+                id: i,
+                title: `Investment Project ${i}`,
+                category: categories[Math.floor(Math.random() * categories.length)],
+                description: `Promising project in ${categories[Math.floor(Math.random() * categories.length)]} with high growth potential. Unique business model and professional management team.`,
+                balance: (Math.floor(Math.random() * 10000000) + 500000).toLocaleString(),
+                growth: `+${(Math.random() * 30 + 5).toFixed(1)}%`,
+                investors: Math.floor(Math.random() * 200) + 10,
+                minInvestment: `${minInvestmentAUR.toLocaleString()} AUR ($${minInvestmentUSD})`,
+                returnPeriod: returnPeriods[Math.floor(Math.random() * returnPeriods.length)],
+                payoutFrequency: payoutFrequencies[Math.floor(Math.random() * payoutFrequencies.length)]
+            });
+        }
+
+        // Функции для работы с куки
+        function setCookie(name, value, days) {
+            const expires = new Date();
+            expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+        }
+        
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+        
+        function deleteCookie(name) {
+            document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+        }
+        
+        // Проверка, зарегистрирован ли пользователь
+        function checkRegistration() {
+            const userData = getCookie('aureum_user');
+            if (userData) {
+                showDashboard();
+                return true;
+            }
+            return false;
+        }
+        
+        // Показать личный кабинет
+        function showDashboard() {
+            document.getElementById('registration-container').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+            
+            // Скрываем поля логина и показываем кнопку вывода средств
+            document.getElementById('login-top').style.display = 'none';
+            document.getElementById('withdraw-top-btn').style.display = 'flex';
+            
+            const userData = JSON.parse(getCookie('aureum_user'));
+            
+            // Заполняем данные профиля
+            document.getElementById('profile-name').textContent = userData.fullname;
+            document.getElementById('profile-email').textContent = userData.email;
+            document.getElementById('profile-phone').textContent = userData.phone;
+            document.getElementById('profile-id').textContent = userData.id;
+            
+            // Дата регистрации
+            const regDate = new Date(userData.registrationDate);
+            document.getElementById('registration-date').textContent = regDate.toLocaleDateString('en-US');
+            document.getElementById('profile-registration-date').textContent = regDate.toLocaleDateString('en-US');
+            
+            // Устанавливаем баланс строго в 0 AUR
+            document.getElementById('balance-amount').textContent = `0 AUR`;
+            document.getElementById('balance-usd').textContent = `$0.00 USD`;
+            document.getElementById('balance-change').textContent = `+0 AUR (0%)`;
+            document.getElementById('balance-change').className = '';
+            
+            // Рассчитываем количество активов AUR
+            document.getElementById('aureum-assets').textContent = '0';
+            
+            // Обновляем шкалу инвестиций
+            document.getElementById('investment-percent').textContent = `0%`;
+            document.getElementById('scale-progress').style.width = `0%`;
+        }
+        
+        // Переключение между вкладками
+        function switchTab(tabName) {
+            // Скрыть все вкладки
+            document.querySelectorAll('.dashboard-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Убрать активный класс со всех ссылок
+            document.querySelectorAll('.dashboard-nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Показать выбранную вкладку
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+            
+            // Активировать соответствующую ссылку
+            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+        }
+        
+        // Показать форму регистрации
+        function showRegistrationForm() {
+            document.getElementById('registration-container').style.display = 'flex';
+            document.getElementById('dashboard').style.display = 'none';
+            
+            // Показываем поля логина и скрываем кнопку вывода средств
+            document.getElementById('login-top').style.display = 'flex';
+            document.getElementById('withdraw-top-btn').style.display = 'none';
+        }
+        
+        // Показать модальное окно инвестирования
+        function showInvestmentModal() {
+            const modal = document.getElementById('investment-modal');
+            const container = document.getElementById('projects-container');
+            
+            // Очищаем контейнер
+            container.innerHTML = '';
+            
+            // Добавляем проекты
+            investmentProjects.forEach(project => {
+                const projectElement = document.createElement('div');
+                projectElement.className = 'project-card';
+                projectElement.innerHTML = `
+                    <div class="project-header">
+                        <h3 class="project-title">${project.title}</h3>
+                        <span class="project-category">${project.category}</span>
+                        <p class="project-description">${project.description}</p>
+                    </div>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <span class="stat-label">Current Balance:</span>
+                            <span class="stat-value">${project.balance} AUR</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="stat-label">Monthly Growth:</span>
+                            <span class="stat-value positive">${project.growth}</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="stat-label">Investors:</span>
+                            <span class="stat-value">${project.investors}</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="stat-label">Min. Investment:</span>
+                            <span class="stat-value">${project.minInvestment}</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="stat-label">Return Period:</span>
+                            <span class="stat-value">${project.returnPeriod}</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="stat-label">Payouts:</span>
+                            <span class="stat-value">${project.payoutFrequency}</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="invest-btn" data-project-id="${project.id}">
+                            Invest AUR
+                        </button>
+                        <button class="chat-btn" data-project-id="${project.id}">
+                            <i class="fas fa-comments"></i> Chat
+                        </button>
+                    </div>
+                `;
+                container.appendChild(projectElement);
+            });
+            
+            // Показываем модальное окно
+            modal.style.display = 'flex';
+            
+            // Добавляем обработчики для кнопок инвестирования
+            document.querySelectorAll('.invest-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Проверяем баланс
+                    const balanceText = document.getElementById('balance-amount').textContent;
+                    const balance = parseInt(balanceText.replace(/[^0-9]/g, ''));
+                    
+                    if (balance === 0) {
+                        alert('Your balance is 0 AUR. Please deposit funds to start investing.');
+                        document.getElementById('investment-modal').style.display = 'none';
+                        switchTab('overview');
+                        document.getElementById('deposit-modal').style.display = 'flex';
+                        return;
+                    }
+                    
+                    const projectId = this.getAttribute('data-project-id');
+                    const project = investmentProjects.find(p => p.id == projectId);
+                    alert(`You are about to invest in project "${project.title}". Minimum investment amount: ${project.minInvestment}. To complete the operation, please contact your financial advisor.`);
+                });
+            });
+            
+            // Добавляем обработчики для кнопок чата
+            document.querySelectorAll('.chat-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Замените ссылку ниже на вашу
+                    window.open('https://tawk.to/chat/6908c1ad0f915a1951a2588c/1j953940h', '_blank');
+                });
+            });
+        }
+        
+        // Показать модальное окно депозита
+        function showDepositModal() {
+            document.getElementById('deposit-modal').style.display = 'flex';
+        }
+        
+        // Показать модальное окно вывода средств
+        function showWithdrawalModal() {
+            document.getElementById('withdrawal-modal').style.display = 'flex';
+        }
+        
+        // Переключение методов вывода
+        function switchWithdrawalMethod(method) {
+            // Убираем активный класс со всех кнопок
+            document.querySelectorAll('.method-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Скрываем все методы
+            document.querySelectorAll('.method-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Активируем выбранный метод
+            document.querySelector(`[data-method="${method}"]`).classList.add('active');
+            document.getElementById(`${method}-method`).classList.add('active');
+        }
+        
+        // Переключение криптовалют для депозита
+        function switchCryptoOption(crypto) {
+            // Убираем активный класс со всех опций
+            document.querySelectorAll('.crypto-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            
+            // Активируем выбранную опцию
+            document.querySelector(`[data-crypto="${crypto}"]`).classList.add('active');
+        }
+        
+        // Обработчик отправки формы регистрации
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullname = document.getElementById('fullname').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match. Please check your entries.');
+                return;
+            }
+            
+            // Сохраняем данные пользователя в куки
+            const userData = {
+                id: 'ACP-' + Math.floor(100000 + Math.random() * 900000),
+                fullname: fullname,
+                email: email,
+                phone: phone,
+                password: password, // В реальном приложении пароль должен хешироваться!
+                registrationDate: new Date().toISOString()
+            };
+            
+            setCookie('aureum_user', JSON.stringify(userData), 30);
+            
+            alert('Registration successful! Welcome to the exclusive Aureum Capital Partners community.');
+            showDashboard();
+        });
+        
+        // Обработчик выхода из системы
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            deleteCookie('aureum_user');
+            showRegistrationForm();
+            document.getElementById('registration-form').reset();
+        });
+        
+        // Обработчик ссылки "Login"
+        document.getElementById('login-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Для демонстрации просто показываем дашборд с любыми данными
+            if (!checkRegistration()) {
+                // Если пользователь не зарегистрирован, создаем тестовые данные
+                const testUser = {
+                    id: 'ACP-PREMIUM',
+                    fullname: 'Premium Investor',
+                    email: 'premium@aureumcapital.com',
+                    phone: '+1 (555) 123-4567',
+                    password: 'premium',
+                    registrationDate: new Date().toISOString()
+                };
+                setCookie('aureum_user', JSON.stringify(testUser), 30);
+            }
+            showDashboard();
+        });
+        
+        // Обработчик кнопки "Deposit"
+        document.getElementById('deposit-btn').addEventListener('click', function() {
+            showDepositModal();
+        });
+        
+        document.getElementById('deposit-main-btn').addEventListener('click', function() {
+            showDepositModal();
+        });
+        
+        // Обработчик кнопки "Invest"
+        document.getElementById('invest-btn').addEventListener('click', function() {
+            showInvestmentModal();
+        });
+        
+        document.getElementById('invest-main-btn').addEventListener('click', function() {
+            showInvestmentModal();
+        });
+        
+        document.getElementById('explore-investments').addEventListener('click', function() {
+            showInvestmentModal();
+        });
+        
+        // Обработчики для переключения вкладок
+        document.querySelectorAll('.dashboard-nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const tabName = this.getAttribute('data-tab');
+                switchTab(tabName);
+            });
+        });
+        
+        // Обработчик закрытия модального окна инвестирования
+        document.getElementById('close-modal').addEventListener('click', function() {
+            document.getElementById('investment-modal').style.display = 'none';
+        });
+        
+        // Обработчик закрытия модального окна депозита
+        document.getElementById('close-deposit').addEventListener('click', function() {
+            document.getElementById('deposit-modal').style.display = 'none';
+        });
+        
+        // Закрытие модального окна инвестирования при клике вне его
+        document.getElementById('investment-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+        
+        // Закрытие модального окна депозита при клике вне его
+        document.getElementById('deposit-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+        
+        // Обработчики для панели настроек
+        document.getElementById('settings-btn').addEventListener('click', function() {
+            document.getElementById('settings-panel').classList.add('active');
+        });
+        
+        document.getElementById('close-settings').addEventListener('click', function() {
+            document.getElementById('settings-panel').classList.remove('active');
+        });
+        
+        // Обработчики для кнопок "About" и "Support"
+        document.getElementById('about-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Aureum Capital Partners - a leading investment platform uniting the best specialists of world class. We provide exclusive access to unique investment opportunities.');
+        });
+        
+        document.getElementById('support-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Support service is available 24/7. Phone: +1 (800) 123-4567, Email: support@aureumcapital.com');
+        });
+        
+        // Обработчики для редактирования профиля
+        document.getElementById('edit-profile-btn').addEventListener('click', function() {
+            const userData = JSON.parse(getCookie('aureum_user'));
+            document.getElementById('edit-name').value = userData.fullname;
+            document.getElementById('edit-email').value = userData.email;
+            document.getElementById('edit-phone').value = userData.phone;
+            document.getElementById('edit-profile-modal').style.display = 'flex';
+        });
+        
+        document.getElementById('edit-profile-settings-btn').addEventListener('click', function() {
+            const userData = JSON.parse(getCookie('aureum_user'));
+            document.getElementById('edit-name').value = userData.fullname;
+            document.getElementById('edit-email').value = userData.email;
+            document.getElementById('edit-phone').value = userData.phone;
+            document.getElementById('edit-profile-modal').style.display = 'flex';
+            document.getElementById('settings-panel').classList.remove('active');
+        });
+        
+        document.getElementById('security-settings-btn').addEventListener('click', function() {
+            document.getElementById('settings-panel').classList.add('active');
+            // Переключаем на вкладку безопасности
+            setTimeout(() => {
+                document.querySelector('.settings-section h3').scrollIntoView({ behavior: 'smooth' });
+            }, 300);
+        });
+        
+        document.getElementById('close-edit-profile').addEventListener('click', function() {
+            document.getElementById('edit-profile-modal').style.display = 'none';
+        });
+        
+        document.getElementById('cancel-edit').addEventListener('click', function() {
+            document.getElementById('edit-profile-modal').style.display = 'none';
+        });
+        
+        document.getElementById('save-profile').addEventListener('click', function() {
+            const newName = document.getElementById('edit-name').value;
+            const newEmail = document.getElementById('edit-email').value;
+            const newPhone = document.getElementById('edit-phone').value;
+            
+            if (newName && newEmail && newPhone) {
+                // Обновляем данные в куки
+                const userData = JSON.parse(getCookie('aureum_user'));
+                userData.fullname = newName;
+                userData.email = newEmail;
+                userData.phone = newPhone;
+                setCookie('aureum_user', JSON.stringify(userData), 30);
+                
+                // Обновляем отображение
+                document.getElementById('profile-name').textContent = newName;
+                document.getElementById('profile-email').textContent = newEmail;
+                document.getElementById('profile-phone').textContent = newPhone;
+                
+                alert('Profile updated successfully!');
+                document.getElementById('edit-profile-modal').style.display = 'none';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+        
+        // Обработчик переключения языка
+        document.getElementById('language-switcher').addEventListener('change', function() {
+            if (this.value === 'ru') {
+                alert('Russian version will be available soon. Currently only English version is supported.');
+                this.value = 'en';
+            }
+        });
+        
+        // Индикатор сложности пароля
+        document.getElementById('password').addEventListener('input', function() {
+            const password = this.value;
+            const strengthBar = document.getElementById('password-strength-bar');
+            let strength = 0;
+            
+            if (password.length >= 8) strength += 25;
+            if (/[A-Z]/.test(password)) strength += 25;
+            if (/[0-9]/.test(password)) strength += 25;
+            if (/[^A-Za-z0-9]/.test(password)) strength += 25;
+            
+            strengthBar.style.width = strength + '%';
+            
+            if (strength < 50) {
+                strengthBar.style.backgroundColor = '#e74c3c';
+            } else if (strength < 75) {
+                strengthBar.style.backgroundColor = '#f39c12';
+            } else {
+                strengthBar.style.backgroundColor = '#2ecc71';
+            }
+        });
+        
+        // Обработчики для вывода средств
+        document.getElementById('withdraw-top-btn').addEventListener('click', function() {
+            showWithdrawalModal();
+        });
+        
+        document.getElementById('close-withdrawal').addEventListener('click', function() {
+            document.getElementById('withdrawal-modal').style.display = 'none';
+        });
+        
+        // Закрытие модального окна вывода средств при клике вне его
+        document.getElementById('withdrawal-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+        
+        // Переключение методов вывода
+        document.querySelectorAll('.method-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const method = this.getAttribute('data-method');
+                switchWithdrawalMethod(method);
+            });
+        });
+        
+        // Переключение криптовалют для депозита
+        document.querySelectorAll('.crypto-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const crypto = this.getAttribute('data-crypto');
+                switchCryptoOption(crypto);
+            });
+        });
+        
+        // Обработчик подтверждения депозита
+        document.getElementById('confirm-deposit').addEventListener('click', function() {
+            const amount = document.getElementById('deposit-amount').value;
+            const selectedCrypto = document.querySelector('.crypto-option.active').getAttribute('data-crypto');
+            
+            if (!amount || amount < 10000) {
+                alert('Minimum deposit amount is 10,000 AUR.');
+                return;
+            }
+            
+            // Замените ссылку ниже на вашу
+            window.open('https://your-deposit-link-here.com', '_blank');
+            document.getElementById('deposit-modal').style.display = 'none';
+        });
+        
+        // Обработчик вывода на карту
+        document.getElementById('withdraw-card').addEventListener('click', function() {
+            const amount = document.getElementById('withdrawal-amount').value;
+            const cardNumber = document.getElementById('card-number').value;
+            const cardHolder = document.getElementById('card-holder').value;
+            const cardExpiry = document.getElementById('card-expiry').value;
+            const cardCvv = document.getElementById('card-cvv').value;
+            const errorElement = document.getElementById('card-error');
+            
+            // Проверяем заполнение всех полей
+            if (!amount || !cardNumber || !cardHolder || !cardExpiry || !cardCvv) {
+                errorElement.textContent = 'Please fill in all fields.';
+                return;
+            }
+            
+            // Проверяем минимальную сумму
+            if (amount < 1000) {
+                errorElement.textContent = 'Minimum withdrawal amount is 1,000 AUR.';
+                return;
+            }
+            
+            // Показываем ошибку о недостатке средств
+            errorElement.textContent = 'Insufficient funds. You do not have enough AUR to complete this withdrawal.';
+            errorElement.classList.add('negative');
+        });
+        
+        // Обработчик вывода через криптовалюту
+        document.getElementById('withdraw-crypto').addEventListener('click', function() {
+            const amount = document.getElementById('withdrawal-amount').value;
+            const cryptoAddress = document.getElementById('crypto-address').value;
+            const cryptoType = document.getElementById('crypto-type').value;
+            
+            if (!amount || !cryptoAddress) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            if (amount < 1000) {
+                alert('Minimum withdrawal amount is 1,000 AUR.');
+                return;
+            }
+            
+            alert(`Withdrawal request for ${amount} AUR to ${cryptoType} address ${cryptoAddress} has been submitted. Processing time: 1-3 business days.`);
+            document.getElementById('withdrawal-modal').style.display = 'none';
+        });
+        
+        // При загрузке страницы проверяем, зарегистрирован ли пользователь
+        window.addEventListener('load', function() {
+            if (!checkRegistration()) {
+                showRegistrationForm();
+            }
+        });
+    </script>
+</body>
+</html>
